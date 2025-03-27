@@ -156,6 +156,12 @@
             <call method="setLogger"><argument type="service" id="cli_logger"/></call>
             <tag name="acmephp.challenge_solver" alias="gandi" />
         </service>
+        <service id="acmephp.challenge_solver.cloudflare" class="AcmePhp\Core\Challenge\Dns\CloudflareSolver" public="false">
+            <argument type="service" id="challenge_extractor.dns" />
+            <argument type="service" id="http.raw_client" />
+            <call method="setLogger"><argument type="service" id="cli_logger"/></call>
+            <tag name="acmephp.challenge_solver" alias="cloudflare" />
+        </service>
         <service id="acmephp.challenge_solver.mock_server" class="AcmePhp\Core\Challenge\Http\MockServerHttpSolver" public="false">
             <tag name="acmephp.challenge_solver" alias="mock-server" />
         </service>

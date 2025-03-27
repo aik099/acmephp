@@ -95,6 +95,9 @@ certificates:
       - action: install_aws_elb
         region: eu-west-1
         loadbalancer: my_elb
+  - domain: sub.example.com
+    solver:
+        name: cloudflare
   - domain: www.example.com
     solver:
       name: http-file
